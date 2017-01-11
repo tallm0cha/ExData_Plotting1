@@ -6,6 +6,6 @@ workSet$Global_active_power <- as.numeric(workSet$Global_active_power)
 
 workSet$DateTime <- strptime(paste(workSet$Date,workSet$Time, sep=' '),format = '%Y-%m-%d %H:%M:%S')
 
-windows(480,480)
+png(file='plot2.png',width=480, height=480, units='px', bg='transparent')
 plot(workSet$DateTime,workSet$Global_active_power, xlab='', ylab='Global Active Power (kilowatts)', main='', type='l')
-savePlot('plot2',type='png')
+dev.off()

@@ -11,7 +11,7 @@ workSet$Sub_metering_3 <- as.numeric(workSet$Sub_metering_3)
 
 workSet$DateTime <- strptime(paste(workSet$Date,workSet$Time, sep=' '),format = '%Y-%m-%d %H:%M:%S')
 
-windows(480,480)
+png(file='plot4.png',width=480, height=480, units='px', bg='transparent')
 par(mfrow=c(2,2))
 #Plot 1
 plot(workSet$DateTime,workSet$Global_active_power, xlab='', ylab='Global Active Power (kilowatts)', main='', type='l')
@@ -30,4 +30,4 @@ legend("topright", legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"),
 #Plot 4
 plot(workSet$DateTime,workSet$Global_reactive_power, xlab='datetime', ylab='Global_reactive_power', main='', type='l')
 
-savePlot('plot4',type='png')
+dev.off()

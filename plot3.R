@@ -8,7 +8,7 @@ workSet$Sub_metering_3 <- as.numeric(workSet$Sub_metering_3)
 
 workSet$DateTime <- strptime(paste(workSet$Date,workSet$Time, sep=' '),format = '%Y-%m-%d %H:%M:%S')
 
-windows(480,480)
+png(file='plot3.png',width=480, height=480, units='px', bg='transparent')
 
 plot(workSet$DateTime,workSet$Sub_metering_1, ylim=c(0, max(workSet$Sub_metering_1)), xlab='', ylab='Energy sub metering', main='', type='l')
 par(new=T)
@@ -16,4 +16,4 @@ plot(workSet$DateTime,workSet$Sub_metering_2, ylim=c(0, max(workSet$Sub_metering
 par(new=T)
 plot(workSet$DateTime,workSet$Sub_metering_3, ylim=c(0, max(workSet$Sub_metering_1)), xlab='', ylab='Energy sub metering', col='blue', type='l')
 legend("topright", legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"), col=c('black','red','blue'), lty=1)
-savePlot('plot3',type='png')
+dev.off()
